@@ -34,7 +34,7 @@ func GetCSVFileWriter() *CsvWriter {
 
 func (w *CsvWriter) Write(data interface{}, funcName, message string) {
 	defer w.csvWriter.Flush()
-	dataArray, err := convertStructToString(data, funcName)
+	dataArray, err := convertStructToString(data, funcName, message)
 	if err != nil {
 		log.Println("failed to marshal data", err)
 		return
@@ -47,13 +47,14 @@ func (w *CsvWriter) Write(data interface{}, funcName, message string) {
 	fmt.Println("written log in csv")
 }
 
-func convertStructToString(data interface{}, funcName string) ([]string, error) {
+func convertStructToString(data interface{}, funcName, message string) ([]string, error) {
 	tempData, err := json.Marshal(data)
 	if err != nil {
 		return nil, err
 	}
 	row := make([]string, 0)
 	row = append(row, funcName)
+	row = append(row, message)
 	row = append(row, time.Now().String())
 	row = append(row, string(tempData))
 	return row, nil
