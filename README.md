@@ -1,8 +1,14 @@
 # GoSqlRaw
 
-Deleting the DB tables in every fresh run to avoid the duplication input of data in the database
+### Task-1: create three tables by SQL script.
+Inside connection package's initDBTables.go file there are three methods createDepartmentTable(), createTeachersTable() and createStudentsTable() which creates required tables using raw SQL script.
 
-### Task-3: calculate the total cost of each department. The cost will be calculated by teachers&#39;
+### Task-2: save those data in the corresponding table by go-program.
+In the initDBTables.go of connection package there are three methods initialInsertIntoDepartmentsTable(), initialInsertIntoTeachersTable(), initialInsertIntoStudentsTable() which inserts the initial data(BULK data) of the tables.
+
+And in the db.go file there is three methods AddStudents(), AddTeacher(), AddDepartment() which insert single data to the specific table.
+
+### Task-3: calculate the total cost of each department. The cost will be calculated by teachers's salaries.
 
 salaries.
 Endpoint: localhost:8005/api/calculate-department-costs
@@ -78,6 +84,12 @@ Response:
 ]
 ```
 
+### Task-7: write a program in which your expected output result will be written in a csv file.
+
+Inside utils package's helper.go file there is a InitFileWriter() which creates a csv file and new csv writer.
+GetCSVFileWriter() returns the CsvWriter's instance which was initialized before.
+Write() method of helper.go writes in the csv file previously initialized
+
 ### To add student:
 
 Endpoint: localhost:8005/api/add-student
@@ -123,3 +135,7 @@ Request Body:
 ```
 
 Response: Status Code: 201
+
+### Notes
+
+Deleting the DB tables in every fresh run to avoid the duplication input of data in the database

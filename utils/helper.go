@@ -15,6 +15,7 @@ type CsvWriter struct {
 	csvWriter *csv.Writer
 }
 
+// InitFileWriter creates file and new csv writer
 func InitFileWriter() error {
 	file, err := os.Create("response.csv")
 	if err != nil {
@@ -32,6 +33,7 @@ func GetCSVFileWriter() *CsvWriter {
 	return csvWriter
 }
 
+// Write writes data into csv file
 func (w *CsvWriter) Write(data interface{}, funcName, message string) {
 	defer w.csvWriter.Flush()
 	dataArray, err := convertStructToString(data, funcName, message)
