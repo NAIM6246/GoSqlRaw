@@ -11,6 +11,7 @@ import (
 	"goSqlRaw/configs"
 	"goSqlRaw/connection"
 	"goSqlRaw/handlers"
+	"goSqlRaw/utils"
 )
 
 const port = 8005
@@ -30,6 +31,10 @@ func init() {
 		err = dbInstance.InsertInitialDataIntoTable()
 		if err != nil {
 			log.Println("failed to insert initial batch data", "error: ", err)
+		}
+		err = utils.InitFileWriter()
+		if err != nil {
+			log.Println("failed to initialize file writer")
 		}
 	})
 }

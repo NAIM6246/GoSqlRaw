@@ -2,12 +2,13 @@
 
 Deleting the DB tables in every fresh run to avoid the duplication input of data in the database
 
-
 ### Task-3: calculate the total cost of each department. The cost will be calculated by teachers&#39;
+
 salaries.
 Endpoint: localhost:8005/api/calculate-department-costs
 Method: GET
-Response: 
+Response:
+
 ```
 [
   {
@@ -28,11 +29,12 @@ Response:
 ]
 ```
 
-
 ### Task-4: find two teachers whose salary is higher than the other teachers.
+
 Endpoint: localhost:8005/api/highest-salary-teachers
 Method: GET
-Response: 
+Response:
+
 ```
 [
   {
@@ -50,11 +52,12 @@ Response:
 ]
 ```
 
-
 ### Task-5: find the total student of each department.
+
 Endpoints: localhost:8005/api/departments-total-student
 Method: GET
-Response: 
+Response:
+
 ```
 [
   {
@@ -75,22 +78,27 @@ Response:
 ]
 ```
 
-### To add student: 
+### To add student:
+
 Endpoint: localhost:8005/api/add-student
 Method: POST
-Request Body: 
+Request Body:
+
 ```
 {
     "studentName" : "st1",
     "teacherID" : 1
 }
 ```
+
 Response: Status Code: 201
 
 ### To add teacher
+
 Endpoint: localhost:8005/api/add-teacher
 Method: POST
-Request Body: 
+Request Body:
+
 ```
 {
   "teacherName" : "Mr. ABC",
@@ -98,16 +106,20 @@ Request Body:
   "departmentID" : 2
 }
 ```
+
 Response: Status Code: 201
 
 ### To add department
+
 Endpoint: localhost:8005/api/add-department
 Method: POST
-Request Body: 
+Request Body:
+
 ```
 {
   "departmentName" : "Physics",
   "departmentCode" : "PHY_01"
 }
 ```
+
 Response: Status Code: 201
